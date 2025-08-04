@@ -8,12 +8,12 @@
 
     <h2>Search Pokémon</h2>
     <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
-    <button id="Btn">Fetch</button>
+    <button id="btn">search</button>
 
     <div id="result"></div>
 
     <script>
-        document.getElementById("Btn").addEventListener("click", function () {
+        document.getElementById("btn").addEventListener("click", function () {
             let name = document.getElementById("pokemonInput").value.toLowerCase();
 
             fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
