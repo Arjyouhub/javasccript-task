@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+   
+    <button onclick="removeClass()">remove</button>
+    
+ <script>
+
+    let p = document.createElement('p')
+    
+    p.textContent = "this is a paragraph with a class attribute"
+
+    document.body.appendChild(p)
+
+    let atribute = document.createAttribute('class')
+
+    atribute.value = 'text'
+    
+    p.setAttributeNode(atribute)
+
+     
+    function removeClass() {
+    
+    p.removeAttribute('class')
+
+    }
+ </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="margin: 50px;">
+
+        <input type="text" name="name" id="text">
+        <button id="submit" onclick="check()">submit</button>
+        <p id="results"></p>
+    </div>
+
+    <script>
+
+        function check() {
+
+            let input = document.getElementById('text').value
+
+            let pattern = /^C/;
+
+            let result = pattern.test('input')
+
+            if (pattern.test(input)) {
+
+                document.getElementById('results').innerHTML = 'its starting with capital C'
+
+            } else {
+                document.getElementById('results').innerHTML = 'its not starting with capital C'
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

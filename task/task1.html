@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="m-10 text-center">
+        <button class=" bg-blue-500 w-24 h-28" onclick="button()">Click</button>
+        <p id="btn" class="text-6xl"></p>
+    </div>
+    <script>
+        let count = 0
+        function button() {
+
+            count++
+
+            document.getElementById('btn').innerHTML = +count
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style=" margin-top: 50px;">
+    <input id="myList" type="text" >
+    <button onclick="toDoList()">submit</button>
+    
+    <ul id="doList">
+
+    </ul>
+
+    <script>
+        
+        function toDoList(){
+
+          let list = document.createElement('li')
+
+          let list1 = document.getElementById('doList')
+          
+          list1.appendChild(list)
+
+          let inputList = document.getElementById('myList').value
+
+          list.textContent = inputList
+
+          let del = document.createElement('button')
+
+          del.textContent = 'delete'
+
+          list.appendChild(del)
+         
+          del.addEventListener('click',buttonClick)
+
+          function buttonClick(){
+      
+            list.remove()
+
+
+          } 
+        }
+      
+    </script>
+</body>
+</html>

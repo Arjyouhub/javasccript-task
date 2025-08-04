@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="tittle">heading</h1>
+    <p class="text">text1</p>
+    <p class="text">text2</p>
+    <p class="text">text3</p>
+    <p class="text">text4</p>
+    <p class="text">text5</p>
+ 
+
+    <script>
+        let myText = document.getElementById('tittle')
+        console.log('getElementById ' +myText.textContent)
+
+        let query = document.querySelector('p')
+        console.log('querySelector ' +query.textContent)
+
+        let all = document.querySelectorAll('.text')
+
+        for(let i=0; i<all.length;i++){
+    
+        console.log(all[i].textContent)
+
+        }
+        
+
+    </script>
+    
+</body>
+</html>

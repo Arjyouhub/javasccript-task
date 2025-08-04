@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+        <p id="heading"></p>
+        <label for="uname">Usename</label>
+        <br>
+        <input type="text" id="uname" name="uname">
+          
+        <button type="submit" id="login">Submit</button>
+        <br>
+        <br>
+        <button id="remove">Clear storage</button>
+
+    <script>
+ 
+        let nameInput = document.querySelector('#uname');
+        let head = document.querySelector('#heading');
+        let removeBtn = document.querySelector('#remove');
+        let logBtn =document.querySelector('#login');
+
+
+        let storedName = localStorage.getItem('Name');
+        if(storedName){
+            head.innerHTML = 'Welocome ' +storedName ;   
+        }
+        logBtn.onclick =() =>{
+
+            if(nameInput.value){
+                localStorage.setItem('Name' ,nameInput.value);
+                head.innerHTML = 'WELCOME ' +nameInput.value ;
+            }
+        }; 
+        removeBtn.onclick =() =>{
+            localStorage.clear();
+            location.reload();
+        }
+   
+
+    </script>
+</body>
+</html>

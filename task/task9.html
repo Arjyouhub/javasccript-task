@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="width: 300px; height: 300px; background-color: rgb(21, 113, 143);display: flex; justify-content: center; align-items: center;">
+
+        <button id="child" style="width: 100px; height: 30px;">click me</button>
+    </div>
+
+    <script>
+        let btn = document.getElementById('child');
+        btn.addEventListener('click',btnAlert);
+
+        function btnAlert(){
+            alert('button clicked')
+            event.stopPropagation();
+        }
+
+        let div = document.getElementById('parent');  
+
+        div.addEventListener('click',parentAlert)
+
+        function parentAlert() {
+            alert('parent clicked');
+            
+            
+        }
+    </script>
+</body>
+</html>

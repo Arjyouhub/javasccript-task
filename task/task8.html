@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="alertBtn">alert</button>
+    <button id="remove">remove</button>
+    
+    <script>
+
+        let event = document.getElementById('alertBtn')
+        event.addEventListener('click', alertMsg)
+
+        function alertMsg() {
+            alert('Button clicked!');
+        }
+             
+            document.getElementById('remove').addEventListener('click',()=>{
+               
+               event.removeEventListener('click', alertMsg);
+                
+            });
+         
+       
+    </script>
+
+</body>
+</html>
