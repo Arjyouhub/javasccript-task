@@ -16,19 +16,19 @@
         btn.addEventListener('click',btnAlert);
 
         function btnAlert(){
-            alert('button clicked')
+            alert('button clicked');
             event.stopPropagation();
         }
 
         let div = document.getElementById('parent');  
 
-        div.addEventListener('click',parentAlert)
+        div.addEventListener('click',parentAlert);
 
         function parentAlert() {
             alert('parent clicked');
             
             
-        }
+        };
     </script>
 </body>
 </html>

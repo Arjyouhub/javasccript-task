@@ -2,43 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pokémon Info Fetch</title>
+    <title></title>
 </head>
 <body>
 
-    <h2>Search Pokémon</h2>
-    <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
+  
+    <input type="text" id="input" placeholder="Enter Pokemon name">
     <button id="btn">search</button>
 
     <div id="result"></div>
 
     <script>
-        document.getElementById("btn").addEventListener("click", function () {
-            let name = document.getElementById("pokemonInput").value.toLowerCase();
+      document.getElementById('btn').addEventListener('click', function(){
+        let name = document.getElementById('input').value;
 
-            fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Pokémon not found");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    let pokeName = data.name;
-                    let pokeType = data.types[0].type.name;
-                    let pokeImage = data.sprites.front_default;
-
-                    document.getElementById("result").innerHTML = `
-                        <h3>Name: ${pokeName}</h3>
-                        <p>Type: ${pokeType}</p>
-                        <img src="${pokeImage}" alt="${pokeName}">
-                    `;
-                })
-                .catch(error => {
-                    document.getElementById("result").innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
-                });
-        });
-    </script>
+        fetch('https://pokeapi.co/api/v2/pokemon/'+ name)
+          .then(function(response) {
+            return response.json();
+          })
+    
+      });   
+    </script> 
 
 </body>
 </html>
