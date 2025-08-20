@@ -2,42 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pokemon Fetcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Finder</title>
 </head>
 <body>
-  <h1>Pokemon Search</h1>
-  
-  <input type="text" id="pokemonInput">
-  <button onclick="getPokemon()">Search</button>
-  
-  <div id="pokemonCard"></div>
+  <h1>Pokemon Finder</h1>
+
+  <input type="text" id="input" placeholder="Enter Pokémon name">
+  <button id="search">Search</button>
+
+  <div id="result"></div>
 
   <script>
-    async function getPokemon() {
-      const name = document.getElementById('pokemonInput').value.toLowerCase();
-      const card = document.getElementById('pokemonCard');
-     
+    
+      let input = document.getElementById('input')
+      let search = document.getElementById('search')
+      let result = document.getElementById('result')
 
-      try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-        if (!res.ok) {
-          throw new Error("Pokemon not found");
+      search.addEventListener('click', async () => {
+        let name =input.value.toLowerCase()
+        if(!name){
+          result.innerHTML ="<p>please Enter a pokemon character name</p>"
         }
-        const data = await res.json();
+        try{
+          let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
 
-        const pokemonName = data.name;
-        const pokemonType = data.types.map(t => t.type.name).join(", ");
-        const pokemonImg = data.sprites.front_default;
+          if (!res.ok) throw new Error("Pokemon not found");
 
-        card.innerHTML = `
-          <h2>${pokemonName.toUpperCase()}</h2>
-          <img src="${pokemonImg}" alt="${pokemonName}">
-          <p>Type: ${pokemonType}</p>
-        `;
-      } catch (error) {
-        card.innerHTML = error.message;
-      }
-    }
+          let data = await res.json();
+          
+
+          let pokemoneName =data.name;
+          let pokemoneType =data.types.map(t=> t.type.name).join(',')
+          let pokemonImg = data.sprites.front_default;
+
+          result.innerHTML=`<h2>${pokemoneName}</h2> <p>type:${pokemoneType}</p> <img src="${pokemonImg}">`
+        }catch(err){
+          result.innerHTML =`<p>${err}</p>`
+
+        }
+        
+      });
+
+
   </script>
 </body>
 </html>

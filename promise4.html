@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 8px;
+      margin: 10px;
+      border: 1px solid gray;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Login Form</h2>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button id="loginBtn">Login</button>
+  <p id="message"></p>
+
+  <h3>Throttle Button Clicks</h3>
+  <button id="throttleBtn">Click Me</button>
+
+  <script>
+
+    function login(username, password) {
+      return new Promise((resolve, reject) => {
+        if (username === "admin" && password === "1234") {
+          resolve("Login successful ✅");
+        } else {
+          reject("Login failed");
+        }
+      });
+    }
+
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      login(username, password)
+        .then(msg => {
+          document.getElementById("message").style.color = "green";
+          document.getElementById("message").textContent = msg;
+        })
+        .catch(err => {
+          document.getElementById("message").style.color = "red";
+          document.getElementById("message").textContent = err;
+        });
+    });
+
+
+    const throttleBtn = document.getElementById("throttleBtn");
+    throttleBtn.addEventListener("click", () => {
+      throttleBtn.disabled = true;
+      throttleBtn.textContent = "Please wait...";
+      setTimeout(() => {
+        throttleBtn.disabled = false;
+        throttleBtn.textContent = "Click Me";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
